@@ -2,7 +2,7 @@ Metadata-Version: 2.4
 Name: ft_package
 Version: 0.0.1
 Summary: A small package
-Author-email: akhi <ojamal@student.1337.ma>
+Author-email: ojamal <ojamal@student.1337.ma>
 License-Expression: MIT
 Classifier: Programming Language :: Python :: 3
 Classifier: Operating System :: OS Independent

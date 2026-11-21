@@ -5,5 +5,7 @@ seconds = (dtm.datetime(2026, 6, 23) - epoch).total_seconds()
 datetime_now = dtm.datetime.now()
 pretty_dtm_now = "%b %d %Y"
 dtmNow = datetime_now.strftime(pretty_dtm_now)
-print("Second since January 1, 1970: ", f"{seconds:,}", "or", '%.2E' % dc.Decimal(seconds), "in scientific notation")
+toPrint = "Seconds since January 1, 1970: "
+ScientificNotation = '%.2E' % dc.Decimal(seconds) + " in scientific notation"
+print(f"{toPrint}", f"{seconds:,}", "or", ScientificNotation)
 print(dtmNow)

@@ -2,7 +2,7 @@
 name = "ft_package"
 version = "0.0.1"
 authors = [
-  { name="akhi", email="ojamal@student.1337.ma" },
+  {name="ojamal", email="ojamal@student.1337.ma" },
 ]
 description = "A small package"
 readme = "README.md"
