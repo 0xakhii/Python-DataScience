@@ -1,20 +1,41 @@
-import numpy as np
-import cv2 as cv
+"""Module to load an image and display its information."""
 
-def ft_load(path: str) -> array:
+import os
+import cv2 as cv
+import numpy as np
+
+
+def ft_load(path: str) -> np.ndarray | None:
+    """Loads an image from path, prints its format and pixels,
+
+    and returns it as an RGB NumPy array.
+
+    Args:
+        path (str): Path to the image file.
+
+    Returns:
+        np.ndarray | None: The loaded image as an RGB NumPy array,
+                           or None if loading fails.
+    """
     try:
+        if not isinstance(path, str):
+            raise AssertionError("Path must be a string.")
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"No such file or directory: '{path}'")
+        if not path.lower().endswith((".jpg", ".jpeg", ".png")):
+            raise ValueError("File format not supported.")
+
         img = cv.imread(path)
-        if not path.endswith((".jpg", ".jpeg", ".png")):
-            raise FileExistsError("File format not supported")
         if img is None:
-            raise FileNotFoundError()
-        width, height, classes = img.shape
-        # print(f"The shape of image is: ({width}, {height}, {classes})")
+            raise ValueError("Failed to decode image file.")
+
         img_rgb = img[:, :, ::-1]
-        # print(img_rgb)
-    except FileNotFoundError:
-        return
-    except FileExistsError as error:
-        print(error)
-        return
-    return img_rgb
+        print(f"The shape of image is: {img_rgb.shape}")
+        print(img_rgb)
+        return img_rgb
+    except FileNotFoundError as error:
+        print(f"FileNotFoundError: {error}")
+        return None
+    except Exception as error:
+        print(f"Error: {error}")
+        return None
