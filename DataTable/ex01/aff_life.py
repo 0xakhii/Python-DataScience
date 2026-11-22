@@ -21,7 +21,7 @@ def find_dataset(filename: str) -> str | None:
 
 def main() -> None:
     """Load and display life expectancy for Morocco."""
-    path = find_dataset("/home/akhi/Downloads/life_expectancy_years.csv")
+    path = find_dataset("/home/ojamal/Downloads/life_expectancy_years.csv")
     if path is None:
         print("Error: life_expectancy_years.csv was not found")
         return

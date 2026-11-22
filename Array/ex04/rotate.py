@@ -46,7 +46,7 @@ def rotate(path: str) -> None:
 
 def main() -> None:
     """Main function to rotate and display the animal image."""
-    rotate("/home/akhi/Downloads/animal.jpeg")
+    rotate("/home/ojamal/Downloads/animal.jpeg")
 
 
 if __name__ == "__main__":

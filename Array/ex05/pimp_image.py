@@ -130,7 +130,7 @@ def ft_grey(array) -> np.ndarray:
 
 def main() -> None:
     """Load the landscape image and display each color filter."""
-    array = ft_load("/home/akhi/Downloads/landscape.jpg")
+    array = ft_load("/home/ojamal/Downloads/landscape.jpg")
     ft_invert(array)
     ft_red(array)
     ft_green(array)

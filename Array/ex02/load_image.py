@@ -45,7 +45,7 @@ def ft_load(path: str) -> np.ndarray | None:
 
 def main():
     """Main function to demonstrate loading an image."""
-    ft_load("/home/akhi/Downloads/animal.jpeg")
+    ft_load("/home/ojamal/Downloads/landscape.jpg")
 
 
 if __name__ == "__main__":

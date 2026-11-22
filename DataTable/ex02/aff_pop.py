@@ -43,7 +43,7 @@ def population_value(value: object) -> float:
 
 def main() -> None:
     """Load and compare population data from 1800 to 2050."""
-    path = find_dataset("/home/akhi/Downloads/population_total.csv")
+    path = find_dataset("/home/ojamal/Downloads/population_total.csv")
     if path is None:
         print("Error: population_total.csv was not found")
         return

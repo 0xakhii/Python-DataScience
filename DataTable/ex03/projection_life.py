@@ -43,8 +43,8 @@ def numeric_value(value: object) -> float:
 
 def main() -> None:
     """Plot life expectancy against GDP per person for the year 1900."""
-    income_name = "/home/akhi/Downloads/income_per_person_gdppercapita_ppp_inflation_adjusted.csv"
-    life_name = "/home/akhi/Downloads/life_expectancy_years.csv"
+    income_name = "/home/ojamal/Downloads/income_per_person_gdppercapita_ppp_inflation_adjusted.csv"
+    life_name = "/home/ojamal/Downloads/life_expectancy_years.csv"
     income_path = find_dataset(income_name)
     life_path = find_dataset(life_name)
 

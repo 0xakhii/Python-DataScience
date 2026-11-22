@@ -30,7 +30,7 @@ def load(path: str) -> pd.DataFrame | None:
 
 def main() -> None:
     """Run a basic loader demonstration."""
-    print(load("/home/akhi/Downloads/life_expectancy_years.csv"))
+    print(load("/home/ojamal/Downloads/life_expectancy_years.csv"))
 
 
 if __name__ == "__main__":
