@@ -35,7 +35,11 @@ def rotate(path: str) -> None:
         return
     print(f"The shape of image is: ({cropped.shape})")
     print(cropped)
-    transposed = cv2.transpose(cropped)
+    rows, cols = cropped.shape[:2]
+    transposed = np.zeros((cols, rows, 3), dtype=cropped.dtype)
+    for i in range(rows):
+        for j in range(cols):
+            transposed[j, i] = cropped[i, j]
     print(f"New shape after Transpose: {transposed.shape}")
     print(transposed)
     plt.imshow(transposed, cmap="gray")
