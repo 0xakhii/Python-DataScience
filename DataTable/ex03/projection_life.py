@@ -6,20 +6,6 @@ import matplotlib.pyplot as plt
 from load_csv import load
 
 
-def find_dataset(filename: str) -> str | None:
-    """Find a dataset in the DataTable or Downloads directories."""
-    candidates = [
-        filename,
-        os.path.join("..", filename),
-        os.path.join("..", "..", filename),
-        os.path.join(os.path.expanduser("~"), "Downloads", filename),
-    ]
-    for candidate in candidates:
-        if os.path.isfile(candidate):
-            return candidate
-    return None
-
-
 def numeric_value(value: object) -> float:
     """Convert a Gapminder value containing M, B or k suffixes."""
     if isinstance(value, (int, float)):
@@ -41,17 +27,18 @@ def numeric_value(value: object) -> float:
         return float("nan")
 
 
-def main() -> None:
+def projection_life() -> None:
     """Plot life expectancy against GDP per person for the year 1900."""
-    income_name = "/home/ojamal/Downloads/income_per_person_gdppercapita_ppp_inflation_adjusted.csv"
-    life_name = "/home/ojamal/Downloads/life_expectancy_years.csv"
-    income_path = find_dataset(income_name)
-    life_path = find_dataset(life_name)
+    base_dir = "/home/ojamal/Downloads"
+    income_name = "income_per_person_gdppercapita_ppp_inflation_adjusted.csv"
+    life_name = "life_expectancy_years.csv"
+    income_path = f"{base_dir}/{income_name}"
+    life_path = f"{base_dir}/{life_name}"
 
-    if income_path is None:
+    if not os.path.isfile(income_path):
         print(f"Error: {income_name} was not found")
         return
-    if life_path is None:
+    if not os.path.isfile(life_path):
         print(f"Error: {life_name} was not found")
         return
 
@@ -80,6 +67,11 @@ def main() -> None:
     plt.legend()
     plt.grid(alpha=0.3)
     plt.show()
+
+
+def main() -> None:
+    """Run the life expectancy and GDP projection function."""
+    projection_life()
 
 
 if __name__ == "__main__":

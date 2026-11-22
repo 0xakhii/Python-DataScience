@@ -23,7 +23,10 @@ def load(path: str) -> pd.DataFrame | None:
         dataset = pd.read_csv(path)
         print(f"Loading dataset of dimensions {dataset.shape}")
         return dataset
-    except (AssertionError, FileNotFoundError, ValueError, pd.errors.ParserError) as error:
+    except (AssertionError,
+            FileNotFoundError,
+            ValueError,
+            pd.errors.ParserError) as error:
         print(f"Error: {error}")
         return None
 

@@ -1,23 +1,8 @@
 """Compare population projections for Morocco and Algeria."""
 
 import os
-import pandas as pd
 import matplotlib.pyplot as plt
 from load_csv import load
-
-
-def find_dataset(filename: str) -> str | None:
-    """Find a dataset in the DataTable or Downloads directories."""
-    candidates = [
-        filename,
-        os.path.join("..", filename),
-        os.path.join("..", "..", filename),
-        os.path.join(os.path.expanduser("~"), "Downloads", filename),
-    ]
-    for candidate in candidates:
-        if os.path.isfile(candidate):
-            return candidate
-    return None
 
 
 def population_value(value: object) -> float:
@@ -41,10 +26,10 @@ def population_value(value: object) -> float:
         return float("nan")
 
 
-def main() -> None:
+def aff_pop() -> None:
     """Load and compare population data from 1800 to 2050."""
-    path = find_dataset("/home/ojamal/Downloads/population_total.csv")
-    if path is None:
+    path = "/home/ojamal/Downloads/population_total.csv"
+    if not os.path.isfile(path):
         print("Error: population_total.csv was not found")
         return
 
@@ -71,6 +56,11 @@ def main() -> None:
     plt.ticklabel_format(axis="y", style="plain")
     plt.grid(alpha=0.3)
     plt.show()
+
+
+def main() -> None:
+    """Run the population comparison function."""
+    aff_pop()
 
 
 if __name__ == "__main__":

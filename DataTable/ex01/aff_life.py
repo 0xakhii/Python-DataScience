@@ -5,24 +5,10 @@ import matplotlib.pyplot as plt
 from load_csv import load
 
 
-def find_dataset(filename: str) -> str | None:
-    """Find a dataset in the DataTable or Downloads directories."""
-    candidates = [
-        filename,
-        os.path.join("..", filename),
-        os.path.join("..", "..", filename),
-        os.path.join(os.path.expanduser("~"), "Downloads", filename),
-    ]
-    for candidate in candidates:
-        if os.path.isfile(candidate):
-            return candidate
-    return None
-
-
-def main() -> None:
+def aff_life() -> None:
     """Load and display life expectancy for Morocco."""
-    path = find_dataset("/home/ojamal/Downloads/life_expectancy_years.csv")
-    if path is None:
+    path = "/home/ojamal/Downloads/life_expectancy_years.csv"
+    if not os.path.isfile(path):
         print("Error: life_expectancy_years.csv was not found")
         return
 
@@ -52,6 +38,11 @@ def main() -> None:
     plt.legend()
     plt.grid(alpha=0.3)
     plt.show()
+
+
+def main() -> None:
+    """Run the life expectancy display function."""
+    aff_life()
 
 
 if __name__ == "__main__":
