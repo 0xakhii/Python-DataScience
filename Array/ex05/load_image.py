@@ -20,17 +20,16 @@ def ft_load(path: str) -> np.ndarray | None:
         if not isinstance(path, str):
             raise AssertionError("Path must be a string.")
         if not os.path.exists(path):
-            ErrMsg = "File not found. Check the provided path"
-            raise FileNotFoundError(ErrMsg)
+            raise FileNotFoundError("File not found. Check the provided path")
         if not path.lower().endswith((".jpg", ".jpeg", ".png")):
             raise FileExistsError("File format not supported")
         img = cv.imread(path)
         if img is None:
             raise ValueError("Failed to decode image file.")
         width, height, classes = img.shape
-        # print(f"The shape of image is: ({width}, {height}, {classes})")
+        print(f"The shape of image is: ({width}, {height}, {classes})")
         img_rgb = img[:, :, ::-1]
-        # print(img_rgb)
+        print(img_rgb)
         return img_rgb
     except FileNotFoundError as error:
         print(f"FileNotFoundError: {error}")
