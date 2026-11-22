@@ -45,7 +45,7 @@ def zoom(path: str = "animal.jpeg") -> np.ndarray | None:
 
 def main():
     """Main program entry point to run zoom on animal.jpeg."""
-    zoom("animal.jpeg")
+    zoom("/home/ojamal/Downloads/animal.jpeg")
 
 
 if __name__ == "__main__":
